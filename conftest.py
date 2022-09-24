@@ -1,8 +1,36 @@
+"""
+
+PyTest's classic configuration file for fixtures
+We definie a fixture to setup browser and close browser when the test ends
+We also pass four different browsers as params
+    CR: Chrome
+    FF: Firefox
+    ED: Edge
+    IE: Internet Explorer
+Create webdriver options with desired capabilities for each browser type
+
+"""
+
+
 import pytest
 from selenium import webdriver
 
+
 @pytest.fixture(params=['CR', 'FF', 'ED', 'IE'], scope='class')
 def setup_browser(request):
+
+    """
+    
+    Setup browser with options and desired capabilities
+    We also pass four different browsers as params
+    CR: Chrome
+    FF: Firefox
+    ED: Edge
+    IE: Internet Explorer
+    Launch web browser at remote site - Lambdatest Hub
+
+    """
+
     lambdatest_usr = "iamramuhere"
     lambdatest_key = "96pQHvrEYTbumnaMY7svaferQRhvdYSknl49M9mPJv59hxpfi9"
     desired_capabilities_cr = {
@@ -92,7 +120,8 @@ def setup_browser(request):
 	}
   }
 }
-
+    
+    # Create webdriver options with desired capabilities for each browser type
     if request.param == 'CR':
         desired_capabilities = desired_capabilities_cr
         browser_options = webdriver.ChromeOptions()
@@ -106,14 +135,9 @@ def setup_browser(request):
         desired_capabilities = desired_capabilities_ie
         browser_options = webdriver.IeOptions()
     
-    
-    # lambdatest_usr = os.getenv('LT_USER')
-    # lambdatest_key = os.getenv('LT_ACCESS_KEY')
-    # desired_capabilities["single_test"]["LT:Options"].update(
-    #     {"username":lambdatest_usr, "accessKey":lambdatest_key}
-    #     )
-    
     browser_options.set_capability('LT:Options', desired_capabilities)
+
+    # Launch web browser at remote site - Lambdatest Hub
     driver = webdriver.Remote(
         command_executor= f"http://{lambdatest_usr}:{lambdatest_key}@hub.lambdatest.com:80/wd/hub",
         options= browser_options
@@ -121,5 +145,5 @@ def setup_browser(request):
     driver.maximize_window()
     request.cls.driver = driver
     yield
-    # tearDown runs after each test case
+    # tearDown: close browser after each test case
     driver.quit()

@@ -1,10 +1,23 @@
+"""
+Making use of Page Object Model:
+    - Create a separate page or class for each web page
+    - Write down all locators
+    - Define constants
+    - Any variables you use in tests
+    - Key Value pairs of form data fields and their locators
+"""
+
 from multiprocessing.util import sub_debug
 
 
 class Page_Scenario_1:
+    
+    """ Page class for Scenario 1 """
+
     # test variables
     simple_form_demo_url = "simple-form-demo"
     welcome_text = "Welcome to LambdaTest"
+    
     # elements
     LINK_TEXT_SIMPLE_FORM_DEMO = "Simple Form Demo"
     XPATH_USER_MESSAGE = "//input[@id='user-message' and @placeholder='Please enter your Message']"
@@ -12,11 +25,18 @@ class Page_Scenario_1:
     ID_SHOW_INPUT_BUTTON = "showInput"
 
 class Page_Scenario_2:
+
+    """ Page class for Scenario 2 """
+
+    # elements
     LINK_TEXT_DRAG_DROP_SLIDERS = "Drag & Drop Sliders"
     XPATH_DRAG_15_95_SLIDER = "//input[@type='range' and @value='15']"
     XPATH_RANGE_OUTPUT = "//output[@id='rangeSuccess']"
 
 class Page_Scenario_3:
+    
+    """ Page class for Scenario 3 """
+
     # elements
     XPATH_NAME_FIELD = "//input[@id='name' and @placeholder='Name']"
     XPATH_EMAIL_FIELD = "//input[@placeholder='Email' and @name='email']"
@@ -28,6 +48,7 @@ class Page_Scenario_3:
     XPATH_ADD2_FIELD = "//input[@id='inputAddress2' and @name='address_line2']"
     XPATH_STATE_FIELD = "//input[@id='inputState' and @placeholder='State']"
     XPATH_ZIP_FIELD = "//input[@id='inputZip' and @name='zip']"
+    
     # more elements
     LINK_TEXT_INPUT_FORM_SUBMIT = "Input Form Submit"
     XPATH_BUTTON_SUBMIT = "//button[@type='submit' and text()='Submit']"
@@ -46,6 +67,7 @@ class Page_Scenario_3:
     state = ("TX", XPATH_STATE_FIELD)
     zip_code = ("12345", XPATH_ZIP_FIELD)
     success_message = ("Thanks for contacting us, we will get back to you shortly.", XPATH_SUCCESS_MESSAGE)
+    
     # more test variables
     validation_message = "Please fill out this field."
     country = 'United States'
