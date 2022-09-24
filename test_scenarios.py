@@ -24,6 +24,7 @@ class Test_Scenarios:
     Makes use of fixture 'setup_browser' defined in conftest module
     """
     
+    home_url = 'https://www.lambdatest.com/selenium-playground'
 
     @pytest.mark.timeout(30)
     def test_scenario_1(self):
@@ -31,7 +32,7 @@ class Test_Scenarios:
         """ test_scenario_1: simple-form-demo """
         
         try:
-            self.driver.get('https://www.lambdatest.com/selenium-playground')
+            self.driver.get(home_url)
             self.driver.find_element(By.LINK_TEXT, ps1.LINK_TEXT_SIMPLE_FORM_DEMO).click()
             assert ps1.simple_form_demo_url in self.driver.current_url
             self.driver.find_element(By.XPATH, ps1.XPATH_USER_MESSAGE).send_keys(ps1.welcome_text)
@@ -46,7 +47,7 @@ class Test_Scenarios:
         """ test_scenario_2: Drag & Drop Sliders """
         
         try:
-            self.driver.get('https://www.lambdatest.com/selenium-playground')
+            self.driver.get(home_url)
             self.driver.find_element(By.LINK_TEXT, ps2.LINK_TEXT_DRAG_DROP_SLIDERS).click()
             ddslider = self.driver.find_element(By.XPATH, ps2.XPATH_DRAG_15_95_SLIDER)
             for i in range(80):
@@ -62,7 +63,7 @@ class Test_Scenarios:
         """ test_scenario_3: Input Form Submit """
 
         try:
-            self.driver.get('https://www.lambdatest.com/selenium-playground')
+            self.driver.get(home_url)
             self.driver.find_element(By.LINK_TEXT, ps3.LINK_TEXT_INPUT_FORM_SUBMIT).click()
             self.driver.find_element(By.XPATH, ps3.XPATH_BUTTON_SUBMIT).click()
             validation_msg = self.driver.find_element(By.XPATH, ps3.XPATH_NAME_FIELD).get_property('validationMessage')
