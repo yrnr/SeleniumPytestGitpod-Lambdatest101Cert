@@ -1,11 +1,11 @@
 tasks:
   - init: |
       python -m venv venv
-      source venv/bin/activate
+      source venv/Scripts/activate
       pip install --upgrade pip wheel setuptools
       pip install -r requirements.txt
   - command: |
-      source venv/bin/activate
+      source venv/Scripts/activate
       pytest -v -n 2 --capture=tee-sys  --html=test-report.html
   
 ports:
