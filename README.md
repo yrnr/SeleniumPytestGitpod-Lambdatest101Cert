@@ -10,6 +10,13 @@ Selenium: 4.4.3
 Framework: PyTest
 
 # To run on Lambdatest Cloud Grid, use below command
+To run the tests, just click Gitpod icon below
+It opens the project in Visual Studio Code
+It then installs all dependencies
+It runs the tests in console, creates a HTML report as well
+You can see results in the console, as well as in lambdatest website
+
+The command used to run the tests:
 pytest -v -n 2 --capture=tee-sys  --html=report_of_tests_lt101cert.html
 
 <a href="https://gitpod.io/#https://github.com/yrnr/lt101cert">
