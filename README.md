@@ -1,5 +1,6 @@
-# lt101cert
+# Lambdatest Selenium 101 Certification
 Lambdatest Selenium 101 Certification - 36 Hours Assignment
+
 Consists of 3 scenarios or Problem statements
 
 # Environment
@@ -12,13 +13,15 @@ Framework: PyTest
 # To run on Lambdatest Cloud Grid, use below command
 To run the tests, just click Gitpod icon at the bottom
 
+If GitPod is till free and if LambdaTest still allows to use their testbeds...
+
 It opens the project in Visual Studio Code
 
-It then installs all dependencies
+It then installs all dependencies in a Ubuntu based container
 
 It runs the tests in console, creates a HTML report as well
 
-You can see results in the console, as well as in lambdatest website
+You can see results in the console, as well as in lambdatest website (again, if still allowed)
 
 The command used to run the tests:
 pytest -v -n 2 --capture=tee-sys --html=report_of_tests_lt101cert.html
